@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/18多层蛋糕.ico">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="../css/style1.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="slideshow">
+
+                <div class="slideshow-left">
+
+                    <div class="Lslide">
+                        <div class="Lslide-content">
+                            <h2>最可爱的你</h2>
+                            <p>世间鲜有真可爱者<br>你就是其中一个</p>
+
+                            <div class="button">
+                                <a href="happly.html">
+                                    <p>More</p>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lslide">
+                        <div class="Lslide-content">
+                            <h2>愿阳光明媚</h2>
+                            <p>把脸一直向着阳光<br>这样就不会见到阴影</p>
+
+                            <div class="button">
+                                <a href="happly.html">
+                                    <p>More</p>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lslide">
+                        <div class="Lslide-content">
+                            <h2>更好的我们</h2>
+                            <p>朝暮与年岁并往，我与你一同行至天光</p>
+
+                            <div class="button">
+                                <a href="happly.html">
+                                    <p>More</p>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Lslide">
+                        <div class="Lslide-content">
+
+                            <h2>年少的我们</h2>
+                            <p>总是可以天天黏在一起的日子</p>
+                            <div class="button">
+                                <a href="happly.html">
+                                    <p>More</p>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slideshow-right">
+
+                    <div class="Rslide">
+                        <img src="../img/2.png" alt="">
+                    </div>
+
+                    <div class="Rslide">
+                        <img src="../img/3.png" alt="">
+                    </div>
+                    <div class="Rslide">
+                        <img src="../img/5.png" alt="">
+                    </div>
+                    <div class="Rslide">
+                        <img src="../img/1.png" alt="">
+                    </div>
+                </div>
+
+
+                <div class="control">
+                    <div class="oncontrol control-top">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="oncontrol control-bottom">
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var Lslide = document.querySelectorAll('.Lslide'),
+            Rslide = document.querySelectorAll('.Rslide'),
+            control = document.querySelectorAll('.oncontrol'),
+            slideHeight = document.querySelector('.wrapper').clientHeight,
+            color = ['#fdc97c', '#e5d3d0', '#00a3af', '#71b3d6'],
+            index = 0;
+
+
+        function init() {
+            slideHeight = document.querySelector('.wrapper').clientHeight;
+            for (i = 0; i < Lslide.length; i++) {
+                Lslide[i].style.backgroundColor = color[i];
+                Lslide[i].style.top = -slideHeight * i + "px";
+                Rslide[i].style.top = slideHeight * i + "px";
+            }
+        }
+        init()
+        window.addEventListener('resize', function() {
+            init()
+        });
+
+        function moveToTop() {
+
+            index++;
+            for (el = 0; el < Lslide.length; el++) {
+                Lslide[el].style.top = parseInt(Lslide[el].style.top) + slideHeight + "px";
+                Rslide[el].style.top = parseInt(Rslide[el].style.top) - slideHeight + "px";
+            }
+
+            if (index > Lslide.length - 1) {
+                index = 0;
+                for (el = 0; el < Lslide.length; el++) {
+                    Lslide[el].style.top = -slideHeight * el + "px";
+                    Rslide[el].style.top = slideHeight * el + "px";
+                }
+            }
+        }
+
+        function moveToBottom() {
+            index--;
+            for (el = 0; el < Lslide.length; el++) {
+                Lslide[el].style.top = parseInt(Lslide[el].style.top) - slideHeight + "px";
+                Rslide[el].style.top = parseInt(Rslide[el].style.top) + slideHeight + "px";
+
+            }
+            if (index < 0) {
+                index = Rslide.length - 1;
+                for (el = 0; el < Lslide.length; el++) {
+                    Lslide[el].style.top = parseInt(Lslide[el].style.top) + slideHeight * Lslide.length + "px";
+                    Rslide[el].style.top = parseInt(Rslide[el].style.top) - slideHeight * Rslide.length + "px";
+                }
+            }
+        }
+
+        function transition() {
+            for (t = 0; t < Lslide.length; t++) {
+                Lslide[t].style.transition = "all 0.8s";
+                Rslide[t].style.transition = "all 0.8s";
+            }
+        }
+
+
+        for (t = 0; t < control.length; t++) {
+            control[t].addEventListener("click", function() {
+
+                if (this.classList.contains('control-top')) {
+                    moveToTop()
+                }
+                if (this.classList.contains('control-bottom')) {
+                    moveToBottom()
+                }
+
+                transition()
+
+            });
+        }
+
+        var wheeling;
+
+        function mousemouve(e) {
+
+            clearTimeout(wheeling);
+            e.preventDefault();
+            var e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+
+            wheeling = setTimeout(function() {
+                wheeling = undefined;
+                if (delta === 1) {
+                    moveToTop()
+                }
+                if (delta === -1) {
+                    moveToBottom()
+                }
+            }, 100);
+
+            transition()
+        }
+
+        document.addEventListener("mousewheel", mousemouve);
+        document.addEventListener("DOMMouseScroll", mousemouve);
+    </script>
+</body>
+
+</html>

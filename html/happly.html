@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/18多层蛋糕.ico">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/styles2.css">
+    <link rel="stylesheet" type="text/css" href="../css/music.css">
+    <style>
+        .div1 {
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="strips">
+        <article class="strips__strip">
+            <div class="strip__content">
+                <h1 class="strip__title" data-name="Ipsum"><img src="../img/情话.png"></h1>
+                <div class="strip__inner-text">
+                    <h2>爱你</h2>
+                    <p>最让人感动的友谊是我希望永远和你在一起，这样我感到很幸福</p>
+                    <p>但我希望你过上更好的生活且不虚此行，即使我们分开也没有关系
+                    </p>
+                    <!-- <p>
+                        <a href="#" target="_blank"><i class="fa fa-qq"></i></a>
+                    </p> -->
+                </div>
+            </div>
+        </article>
+        <article class="strips__strip">
+            <div class="strip__content">
+                <h1 class="strip__title" data-name="Dolor"><img src="../img/时间.png"></h1>
+                <div class="strip__inner-text">
+                    <h2>愿做你的一颗星</h2>
+                    <p>每个人都会有一个星星兜，差不多的人生中,时而也会有闪闪发光的事情</p>
+                    <p>所以你要留意去抓住它，好好装在自己的星星兜里</p>
+                    <p>这样等你以后累了烦了，可以拿出来看看你的那些星星</p>
+                    <p>就能度过艰难的时光</p>
+                    <!-- <p>
+                        <a href="#" target="_blank"><i class="fa fa-weibo"></i></a>
+                    </p> -->
+                </div>
+            </div>
+        </article>
+        <article class="strips__strip">
+            <div class="strip__content">
+                <h1 class="strip__title" data-name="Sit"><img src="../img/礼物.png"></h1>
+                <div class="strip__inner-text">
+                    <h2>我们</h2>
+                    <p>期待跟好久不见的你分享喜怒哀乐与碎碎念</p>
+                    <p>那些身边的蓝天和白云那些积攒了很久的想念和牵挂那些一直被吐槽的糗事和小八卦</p>
+                    <p> 互相想见面的心情最开心</p>
+                    <p> 总是有很多的感同身受，面临的困境总是那么相似</p>
+                    <p> 一定要一起努力，成为更好的我们</p>
+                    <p> 风雨里做个大人，阳光下做个孩子</p>
+                    <p> 安静努力、不必声张、前方有好人、有惊喜、有久违的感动</p>
+                    <p> 世事千帆过，前方终会是温柔和月光</p>
+                    <!-- <p>
+                        <a href="#" target="_blank"><i class="fa fa-weixin"></i></a>
+                    </p> -->
+                </div>
+            </div>
+        </article>
+        <article class="strips__strip">
+            <div class="strip__content">
+                <h1 class="strip__title" data-name="Amet"><img src="../img/拍合照.png"></h1>
+                <div class="strip__inner-text">
+                    <h2>天长地久</h2>
+                    <p>可进可出，若即若离，可爱可怨，可聚而不会散</p>
+                    <p>才是最天长地久的一种好朋友</p>
+                    <!-- <p>
+                        <a href="#" target="_blank"><i class="fa fa-leaf"></i></a>
+                    </p> -->
+                </div>
+            </div>
+        </article>
+        <article class="strips__strip">
+            <div class="strip__content">
+                <h1 class="strip__title" data-name="Amet"><img src="../img/表白信.png"></h1>
+                <div class="strip__inner-text">
+                    <h2>愿你</h2>
+                    <p>我希望你被打磨，永远光明磊落</p>
+                    <p>我希望你能走过山山水水，写温柔的字，坦荡地爱</p>
+                    <p>我希望你被阅读，不被辜负</p>
+                    <p>你要飘摇着美丽，活得丰盛，或庄重</p>
+                    <!-- <p>
+                        <a href="#" target="_blank"><i class="fa fa-leaf"></i></a>
+                    </p> -->
+                </div>
+            </div>
+        </article>
+        <i class="fa fa-close strip__close"></i>
+        <div class="div1"><audio src="../music/Remember - Winner.mp3" controls>
+        </audio></div>
+        <script>
+            window.addEventListener('load', function() {
+                let div = document.querySelector('.div1');
+                let music = document.querySelector('audio')
+                let flag = true
+                div.addEventListener('click', function() {
+                    if (flag) {
+                        music.play()
+                        flag = !flag
+                        this.style.animation = 'xuanzhuan 5s linear infinite'
+                    } else if (flag == false) {
+                        music.pause()
+                        flag = !flag
+                        this.style.animation = ''
+                    }
+                })
+            })
+        </script>
+    </section>
+
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script>
+        var Expand = function() {
+            var tile = $('.strips__strip');
+            var tileLink = $('.strips__strip > .strip__content');
+            var tileText = tileLink.find('.strip__inner-text');
+            var stripClose = $('.strip__close');
+            var expanded = false;
+            var open = function() {
+                var tile = $(this).parent();
+                if (!expanded) {
+                    tile.addClass('strips__strip--expanded');
+                    tileText.css('transition', 'all .6s 1s cubic-bezier(0.23, 1, 0.32, 1)');
+                    stripClose.addClass('strip__close--show');
+                    stripClose.css('transition', 'all .6s 1s cubic-bezier(0.23, 1, 0.32, 1)');
+                    expanded = true;
+                }
+            };
+            var close = function() {
+                if (expanded) {
+                    tile.removeClass('strips__strip--expanded');
+                    tileText.css('transition', 'all 0.15s 0 cubic-bezier(0.23, 1, 0.32, 1)');
+                    stripClose.removeClass('strip__close--show');
+                    stripClose.css('transition', 'all 0.2s 0s cubic-bezier(0.23, 1, 0.32, 1)');
+                    expanded = false;
+                }
+            };
+            var bindActions = function() {
+                tileLink.on('click', open);
+                stripClose.on('click', close);
+            };
+            var init = function() {
+                bindActions();
+            };
+            return {
+                init: init
+            };
+        }();
+        Expand.init();
+    </script>
+</body>
+
+</html>
